@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$("#detailForm").attr("action", "modify")
 	})
 	//삭제
-	$("#delete").click(function(){
+	$("#del").click(function(){
 		$("#detailForm").attr("action", "delete")
 	})
 })

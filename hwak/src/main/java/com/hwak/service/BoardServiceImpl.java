@@ -38,4 +38,16 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVO boardDetail(int eno) throws Exception {
 		return bm.boardDetail(eno);
 	}
+	// 행사 수정
+	@Override
+	public void boardModify(BoardVO board) throws Exception {
+		bm.boardModify(board);
+		
+	}
+	//행사 삭제
+	@Override
+	public void boardDelete(BoardVO board) throws Exception {
+		bm.boardDelete(board);
+		
+	}
 }	

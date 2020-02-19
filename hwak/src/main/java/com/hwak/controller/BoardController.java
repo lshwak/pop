@@ -66,14 +66,27 @@ public class BoardController {
 		logger.info("detail detailList ... "+bservice.boardDetail(eno));
 		return "board/detail";
 	}
-	/*수정*/
+	/*행사수정*/
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
 	public String modifyGet(@RequestParam int eno,Model model) throws Exception {
-		logger.info("modify get ... ");
+		logger.info("modify get ... "+eno);
 		model.addAttribute("modify", bservice.boardDetail(eno));
 		return "board/modify";
 	}
-	
+	/*행사수정 처리*/
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modifyPost(BoardVO board) throws Exception {
+		logger.info("modify post"+board);
+		bservice.boardModify(board);
+		return "redirect:detail?eno="+board.getEno();
+	}
+	/*행사 삭제*/
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public String deleteGet(BoardVO board) throws Exception {
+		logger.info("게시번호 eno = "+board.getEno());
+		bservice.boardDelete(board);
+		return "redirect:event";
+	}
 }
 
 

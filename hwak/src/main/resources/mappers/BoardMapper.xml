@@ -47,9 +47,23 @@
 
 </select>
 
+<!-- 행사 수정 -->
+<update id="boardModify">
+update boards
+	set esubject = #{esubject},
+	econtent = #{econtent},
+	edate = #{edate},
+	estyle = #{estyle},
+	etype = #{etype},
+	eaddress = #{eaddress}
+	where eno = #{eno}
+</update>
 
-
-
+<!-- 행사 삭제 -->
+<delete id="boardDelete">
+	delete from boards
+	where eno = #{eno}
+</delete>
 
 
 

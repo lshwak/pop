@@ -13,7 +13,7 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<script src="resources/js/event.js"></script>
+<!-- <script src="resources/js/event.js"></script> -->
 <link href="resources/css/event.css" rel="stylesheet">
 <title>DanceMoa Event</title>
 </head>

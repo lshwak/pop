@@ -14,7 +14,7 @@
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
 <script src="resources/js/detail.js"></script>
-<link href="resources/css/detail.css" rel="stylesheet">
+<!-- <link href="resources/css/detail.css" rel="stylesheet"> -->
 <title>DanceMoa Event Detail</title>
 </head>
 <body>
@@ -46,7 +46,7 @@
     </div>
     <div class="delclass">	
     	<div class="modify-area">
-    		<input type="submit" value="삭제" class="btn-delete" onclick="btn_click('delete')">
+    		<input type="submit" value="삭제" id="del">
     	</div>
     </div>
     </div>

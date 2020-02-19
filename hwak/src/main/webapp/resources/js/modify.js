@@ -55,10 +55,21 @@ function detailAddress(){
 
 
 
+$(document).ready(function(){
+	
 
+$("#mdf").on('click', function() {
+	//var sty = [];
+	var sty = "";
+	$("input[name=estyle]:checked").each(function(){
+		sty+=$(this).val()+", ";
+		//sty.push($(this).val());
+	});
+	alert(sty);
+	
+});
 
-
-
+})
 
 
 

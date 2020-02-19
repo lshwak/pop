@@ -14,14 +14,15 @@
  $(document).ready(function(){
 	 
 	 
-	 
+	/* 
 	 function btn_click(obj) {
 	
 	if(obj=="register") {
+		alert("write");
 		form1.action = "write";
 		form1.method = "get";
 	} 
-}
+}*/
 
 	
 	 

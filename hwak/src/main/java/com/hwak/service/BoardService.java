@@ -14,4 +14,8 @@ public interface BoardService {
 	public int boardCount(Criteria cri) throws Exception;
 	// 이벤트 상세내용
 	public BoardVO boardDetail(int eno) throws Exception;
+	// 행사 글 수정
+	public void boardModify(BoardVO board)throws Exception;
+	// 행사 삭제
+	public void boardDelete(BoardVO board) throws Exception;
 }

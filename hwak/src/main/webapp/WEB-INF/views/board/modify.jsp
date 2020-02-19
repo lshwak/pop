@@ -21,11 +21,14 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="modify" method="post">
+<form action="modify" method="post" enctype="multipart/form-data">
 <div class="container">
   <h1 id = "a">행사 수정</h1>
   <div class="middle">
 	  <table>
+	  	<tr class="linetop">
+	  		<td>행사 번호</td><td><input type="text" id="num" name="eno" value="${modify.eno}" readOnly></td>
+	  	</tr>
 	  	<tr class="linetop">
 	  		<td>행사 제목</td><td><input type="text" id="subject" name="esubject" value="${modify.esubject}"></td>
 	  	</tr>
@@ -71,19 +74,19 @@
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 				<input type="text" id="sample6_address" placeholder="주소"><br>
 				<input type="text" id="sample6_detailAddress" onkeyup="detailAddress()" placeholder="상세주소">
-				<input type="hidden" id="address" name="eaddress">
+				<input type="hidden" id="address">
 				<br>
-				<input type="text" id="sumaddress" value="${modify.eaddress}">
+				<input type="text" id="sumaddress" name="eaddress" value="${modify.eaddress}">
 			</td>
 	  	</tr>
 	  	<tr class="line">
 	  		<td>지도 (위도/경도)</td><td></td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>내용</td><td><textarea rows="10" cols="70" name="econtent">${modify.esubject}</textarea></td>
+	  		<td>내용</td><td><textarea rows="10" cols="70" name="econtent">${modify.econtent}</textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
-	  		<td colspan="2" align="center"><input type="submit" id="mdf" onclick="modifing()" value="수정"></td>
+	  		<td colspan="2" align="center"><input type="submit" id="mdf" value="수정"></td>
 	  	</tr>
 	  </table>
   </div>	
@@ -92,23 +95,32 @@
 <c:import url="/include/footer"></c:import>
 
 <script>
-	  			console.log("${modify.estyle}");
-	  			var cb = "${modify.estyle}";
-	  			
-	  			$("input[name=estyle]").each(function(){
-	  				var value = $(this).val();
-	  				console.log(value);
-	  				if(cb.includes(value)){
-	  					console.log("일치하는가?");
-	  				   this.checked = true;
-	  				}
-	  			});
-	  			
-	  			
-	  			/*var arr = new Array();
-	  			arr.push("${modify.estyle}");
-	  			console.log(arr); */
-	  			
+	/*checkbox checked*/
+		console.log("${modify.estyle}");
+		var cb = "${modify.estyle}";
+		
+		$("input[name=estyle]").each(function(){
+			var value = $(this).val();
+			console.log(value);
+			if(cb.includes(value)){
+				console.log("일치하는 checkbox");
+			   this.checked = true;
+			}
+		});
+		
+		/*radio checked*/
+		console.log("${modify.etype}");
+		var rb = "${modify.etype}";
+		
+		$("input[name=etype]").each(function(){
+			var radioVal = $(this).val();
+			console.log(radioVal);
+			if(rb==(radioVal)) {
+				console.log("일치하는 radio");
+				this.checked = true;
+			}
+		});
+		
 </script>
 </body>
 </html>

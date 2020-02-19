@@ -43,5 +43,15 @@ public class BoardMapperImpl implements BoardMapper {
 		BoardVO boardvo = sqlSession.selectOne(namespace+".boardDetail",eno);
 		return boardvo;
 	}
+	// 행사 수정
+	@Override
+	public void boardModify(BoardVO board) throws Exception {
+		sqlSession.update(namespace+".boardModify",board);
+	}
+	// 행사 삭제
+	@Override
+	public void boardDelete(BoardVO board) throws Exception {
+		sqlSession.update(namespace+".boardDelete",board);
+	}
 	
 }
