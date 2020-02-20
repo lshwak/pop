@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwak.mapper.BoardMapper">
+<!-- 행사 등록 -->
+<insert id="boardWrite">
+		insert into boards (esubject,etype,edate,econtent,estyle,eaddress) 
+		values (#{esubject},#{etype},#{edate},#{econtent},#{estyle},#{eaddress}
+
+
+		)
+
+</insert>
+
+<!-- event 전체 목록 (페이징) -->
+<select id="boardEventPage" resultType="com.hwak.model.BoardVO">
+	select eno, esubject, etype, edate, ecnt
+		from (
+			select @rownum:=@rownum+1 as rownum, eno,esubject,etype,edate,ecnt
+		    from(select @rownum:=0) as rownum
+				,boards
+			<if test="keyword!=null">
+		    where esubject like concat ('%' ,#{keyword}, '%')
+		    </if>
+		    order by eno desc
+	) boards
+	<![CDATA[
+	where rownum > (#{pageNum}-1) * #{amount} and rownum <= #{pageNum} * #{amount}
+	]]>
+</select>
+
+<!-- boards 테이블 전체 갯수 -->
+<select id="boardCount" resultType="int">
+	select count(*) from boards
+	<if test="keyword != null">
+		where esubject like concat('%',#{keyword},'%')
+	</if>
+</select>
+
+<!-- 행사 상세내용 -->
+<select id="boardDetail" resultType="com.hwak.model.BoardVO">
+<![CDATA[
+	select * from boards where eno = #{eno}
+]]>
+
+</select>
+
+<!-- 행사 수정 -->
+<update id="boardModify">
+update boards
+	set esubject = #{esubject},
+	econtent = #{econtent},
+	edate = #{edate},
+	estyle = #{estyle},
+	etype = #{etype},
+	eaddress = #{eaddress}
+	where eno = #{eno}
+</update>
+
+<!-- 행사 삭제 -->
+<delete id="boardDelete">
+	delete from boards
+	where eno = #{eno}
+</delete>
+
+
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

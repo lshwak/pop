@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="/magazine" method="get">
+<form action="mregister" method="get">
 
 <div class="middle">
 <!-- Page Content -->
@@ -53,7 +53,7 @@
 		<td class="textcontent">
 			<h4><a href="magadetail?mno=${magazines.mno}">${magazines.mtitle}</a></h4><br>
 			${magazines.mwriter} | View : ${magazines.mcnt} | ${magazines.mregdate}<br>
-			${magazines.mcontent}
+			${magazines.msubtitle}
 		</td>
 	</tr>
 	</c:forEach>

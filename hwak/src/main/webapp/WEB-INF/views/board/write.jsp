@@ -87,6 +87,9 @@
   </div>	
   </div>
 </form>
+<div>
+	<img src="C:\upload\${savedName}">
+</div>
 <c:import url="/include/footer"></c:import>
 </body>
 </html>
